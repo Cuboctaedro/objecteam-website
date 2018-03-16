@@ -1,0 +1,28 @@
+doctype html
+html(lang=language.locale)
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        block title
+
+        meta(name="author" content="Objecteam")
+        meta(name="description" content="")
+        block meta
+        link(href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700|Teko:600" rel="stylesheet")
+        link(rel="stylesheet" href="/css/index.css" type="text/css")
+    body(class="")
+
+        block content
+
+        script
+            :babel
+                if (window.netlifyIdentity) {
+                    window.netlifyIdentity.on("init", user => {
+                        if (!user) {
+                            window.netlifyIdentity.on("login", () => {
+                                document.location.href = "/admin/";
+                            });
+                        }
+                    });
+                }

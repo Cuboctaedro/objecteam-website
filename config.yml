@@ -1,0 +1,15 @@
+siteurl: ''
+summaryLength: 300
+siteTitle: 'Objecteam'
+publicDir: 'public'
+contentDir: 'content'
+staticDir: 'static'
+dateFormat: 'LL'
+languages: 
+    - path: '/'
+      locale: 'el'
+      name: 'Greek'
+    - path: '/en/'
+      locale: 'en'
+      name: 'English'
+defaultLanguage: 'el'
