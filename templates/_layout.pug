@@ -9,9 +9,22 @@ html(lang=language.locale)
         meta(name="author" content="Objecteam")
         meta(name="description" content="")
         block meta
-        link(href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700|Teko:600" rel="stylesheet")
         link(rel="stylesheet" href="/css/index.css" type="text/css")
-    body(class="")
+    body(class="fs-16 lh-24 ff-serif c-black bg-white")
+        header(class="bg-black c-white ff-sans fw-800 h-96")
+            div(class="wrapper d-flex gutter")
+                if (type == 'home')
+                    h1(class="tt-upper fs-48 gutter w-1of4")
+                        a(href=pageurl(pages.home) class="c-white") Objecteam
+                else
+                    div(class="tt-upper fs-48 gutter w-1of4") 
+                        a(href=pageurl(pages.home) class="c-white") Objecteam
+                nav(class="tt-upper fs-14 gutter w-3of4")
+                    ul
+                        - var menu = [pages.about, pages.members, pages.blog, pages.contact]
+                        each item in menu
+                            li(class="d-in-bl ml-16")
+                                a(class="c-white" href=pageurl(item)) #{ item[get('title')] }
 
         block content
 

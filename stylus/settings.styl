@@ -1,155 +1,948 @@
 /*  =========================================================================
-    GLOBAL
+    CUSTOM GLOBAL VARIABLES
+    ========================================================================= */
+
+/* Here you can include any variables or hashes that you want to use later.
+   For example you can define your colors once here and then reference them in
+   the settings for background, color and border-color.
+*/
+
+// Colors
+global-color-values = {
+    'black': '#303030',
+    'white': '#f2f0de',
+    'red': '#da4343',
+    'transparent': 'transparent'
+}
+
+global-module = 8px
+
+
+global-spacing-values = {
+    '0'       : '0',
+    'px'      : '1px',
+    '1of4'    : '25%',
+    '1of3'    : '33.3333%',
+    '1of2'    : '50%',
+    '2of3'    : '66.6666%',
+    '3of4'    : '75%',
+    'full'    : '100%',
+    'auto'    : 'auto',
+    'screenh' : '100vh',
+    'screenw' : '100vw',
+    '8'       : '8px',
+    '16'      : '16px',
+    '24'      : '24px',
+    '32'      : '32px',
+    '40'      : '40px',
+    '48'      : '48px',
+    '72'      : '72px',
+    '96'      : '96px',
+    '120'     : '120px',
+    '144'     : '144px',
+}
+
+global-sizing-values = {
+    '0'       : '0',
+    'px'      : '1px',
+    '1of4'    : '25%',
+    '1of3'    : '33.3333%',
+    '1of2'    : '50%',
+    '2of3'    : '66.6666%',
+    '3of4'    : '75%',
+    'full'    : '100%',
+    'auto'    : 'auto',
+    'screen'  : '100vh',
+    '24'      : '24px',
+    '32'      : '32px',
+    '48'      : '48px',
+    '72'      : '72px',
+    '96'      : '96px',
+    '120'     : '120px',
+    '144'     : '144px',
+    '192'     : '192px',
+    '240'     : '240px',
+    '360'     : '360px',
+    '480'     : '480px'
+}
+
+/*  =========================================================================
+    MEDIA QUERIES
     ========================================================================= */
 
 // Media queries
 global-media-queries = {
-    'sm__': 'screen and (min-width: 23em)',//360px
-    'md__': 'screen and (min-width: 44em)',//690px
-    'lg__': 'screen and (min-width: 65em)'//1020px
-    'xl__': 'screen and (min-width: 85em)'//1350px
+    'xs__': 'screen and (min-width: 19.5em)',//312px
+    'sm__': 'screen and (min-width: 25.5em)',//408px
+    'md__': 'screen and (min-width: 37.5em)',//600px
+    'lg__': 'screen and (min-width: 56em)',//888px
+    'xl__': 'screen and (min-width: 75em)'//1176px
 }
+
 // Media query postfix or prefix
 media-query-postfix = false
 
+
+
+/*  =========================================================================
+    HOVER
+    ========================================================================= */
+
 // Hover
 hover-postfix = false
-hover-identifier = 'h\:'
+hover-identifier = 'h__'
 
 
 /*  =========================================================================
-    Write Function
+    UTILITIES
     ========================================================================= */
 
-        
-torem(value)
-    if (typeof(value) isnt 'unit') or (unit(value) isnt 'px')
-        return value 
-    else
-        return unit(value/16, 'rem')
+/* 
+ALIGN CONTENT
+============= 
+*/
 
-
-writeClasses(property, settings) 
-    for key, value in settings['values']
-        .{settings['classname']}{key}
-            {property}: torem(value)
-    if settings['responsive'] is true
-        for querykey, queryvalue in global-media-queries
-            @media queryvalue
-                for key, value in settings['values']
-                    if media-query-postfix is true
-                        .{settings['classname']}{key}{querykey}
-                            {property}: torem(value)
-                    else
-                        .{querykey}{settings['classname']}{key}
-                            {property}: torem(value)
-    if settings['hover'] is true
-        for key, value in settings['values']
-            if hover-postfix is true
-                .{settings['classname']}{key}{hover-identifier}:hover
-                    {property}: torem(value)
-            else
-                .{hover-identifier}{settings['classname']}{key}:hover
-                    {property}: torem(value)
-
-
-
-
-                    
-/*  =========================================================================
-    CUSTOM GLOBAL VARIABLES
-    ========================================================================= */
-
-// Colors
-global-color-values = {
-    'black': #000000,
-    'white': #ffffff,
-    'grey': #999999,
-    'transparent': transparent
+align-content-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ac-',
+    'values': {
+        'stretch' : stretch,
+        'start'   : flex-start,
+        'end'     : flex-end,
+        'between' : space-between,
+        'around'  : space-around
+    }
 }
 
+
+/* 
+ALIGN ITEMS
+===========
+*/
+
+align-items-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ai-',
+    'values': {
+        'stretch' : stretch,
+        'start'   : flex-start,
+        'end'     : flex-end,
+        'center'  : center,
+        'baseline': baseline
+    }
+}
+
+
+/* 
+ALIGN SELF
+==========
+*/
+
+align-self-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'as-',
+    'values': {
+        'stretch' : stretch,
+        'start'   : flex-start,
+        'end'     : flex-end,
+        'center'  : center,
+        'baseline': baseline,
+        'auto'    : auto
+    }
+}
+
+
+/* 
+BACKGROUND COLOR
+================
+*/
+
+background-color-settings = {
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'bg-',
+    'values': global-color-values
+}
+                
+
+/* 
+BACKGROUND POSITION
+===================
+*/
+
+background-position-settings = {
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'bg-pos-',
+    'values': {
+        'top'          : top center,
+        'bottom'       : bottom center,
+        'center'       : center center,
+        'right'        : center right,
+        'left'         : center left,
+        'top-right'    : top right,
+        'top-left'     : top left,
+        'bottom-right' : bottom right,
+        'bottom-left'  : bottom left
+    }
+}
+
+
+/*
+BACKGROUND SIZE
+===============
+*/
+
+background-size-settings = {
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'bg-size-',
+    'values': {
+        'contain'  : contain,
+        'cover'    : cover,
+        'auto'     : auto
+    }
+}
+
+
+/*
+BORDER COLOR
+============
+*/
+    
+border-color-settings = {
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'bc-',
+    'values': global-color-values
+}
+
+
+/*
+BORDER STYLE
+============
+*/
+
+border-style-settings = {
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'bs-',
+    'values': {
+        'none': none,
+        'dotted': dotted,
+        'dashed': dashed,
+        'solid': solid
+    }
+}
+
+
+/*
+BORDER WIDTH
+============
+*/
+
+// Comon width values
+border-values = {
+    '0'       : '0',
+    'px'      : '1px',
+    '4'       : '4px',
+    '8'       : '8px'
+}
+// Settings for border-width
+border-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'b-',
+    'values': border-values
+}
+// Settings for each side (border-top-width etc..)
+border-top-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bt-',
+    'values': border-values
+}
+border-right-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'br-',
+    'values': border-values
+}
+border-bottom-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bb-',
+    'values': border-values
+}
+border-left-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'bl-',
+    'values': border-values
+}
+
+
+/*
+BOX SHADOW
+==========
+*/
+
+box-shadow-settings = {
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'sh-',
+    'values': {
+        '0'  : none,
+        '1'  : '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
+        '2'  : '0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12)',
+        '3'  : '0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12)',
+        '4'  : '0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.2), 0 3px 5px -1px rgba(0, 0, 0, 0.12)',
+        '5'  : '0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.2), 0 5px 5px -3px rgba(0, 0, 0, 0.12)',
+        '6'  : '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.2), 0 8px 10px -5px rgba(0, 0, 0, 0.12)',
+        '7'  : '0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.12)'
+    }
+}
+
+
+/*
+CLEAR
+=====
+*/
+
+clear-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'cl-',
+    'values': {
+        'left' : left,
+        'right': right,
+        'none' : none,
+        'both' : both
+    }
+}
+
+
+/*
+COLOR
+=====
+*/
+
+color-settings = {
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'c-',
+    'values': global-color-values
+}
+
+
+/*
+DISPLAY
+=======
+*/
+
+display-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'd-',
+    'values': {
+        'block' : block,
+        'inline': inline,
+        'in-bl' : inline-block,
+        'flex'  : flex,
+        'grid'  : grid,
+        'none'  : none
+    }
+}
+
+
+/*
+FLEX DIRECTION
+==============
+*/
+
+flex-direction-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'fxd-',
+    'values': {
+        'row'     : row,
+        'row-rev' : row-reverse,
+        'col'     : column,
+        'col-rev' : column-reverse
+    }
+}
+
+
+/*
+FLEX GROW
+=========
+*/
+
+flex-grow-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'fxg-',
+    'values': {
+        '0' : '0',
+        '1' : '1',
+        '2' : '2'
+    }
+}
+
+
+/*
+FLEX SHRINK
+===========
+*/
+
+flex-shrink-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'fxs-',
+    'values': {
+        '0' : '0',
+        '1' : '1',
+        '2' : '2'
+    }
+}
+
+
+/*
+FLEX WRAP
+=========
+*/
+
+flex-wrap-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'fxw-',
+    'values': {
+        'nowrap'  : nowrap,
+        'wrap'    : wrap,
+        'reverse' : wrap-reverse
+    }
+}
+
+
+/*
+FLOAT
+=====
+*/
+
+float-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'f-',
+    'values': {
+        'left' : left,
+        'right': right,
+        'none' : none
+    }
+}
+
+/*
+FONT FAMILY
+===========
+*/
+
+font-family-settings = {
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'ff-',
+    'values': {
+        'sans' : 'PosteramaText, Arial, sans-serif',
+        'serif': 'Nimrod, Georgia, sans-serif',
+        'mono' : 'Monospace821, Consolas, monospace'
+    }
+}
+
+
+/*
+FONT SIZE
+=========
+*/
+
+font-size-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'fs-',
+    'values': {
+        '12'  : '12px',
+        '14'  : '14px',
+        '16'  : '16px',
+        '18'  : '18px',
+        '24'  : '24px',
+        '36'  : '36px',
+        '48'  : '48px',
+        '60'  : '60px',
+        '72'  : '72px',
+        '90'  : '90px',
+        '120' : '120px'
+    }
+}
+
+
+/*
+FONT STYLE
+==========
+*/
+
+font-style-settings = {
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'fst-',
+    'values': {
+        'italic'  : italic,
+        'normal'  : normal
+    }
+}
+
+
+/*
+FONT WEIGHT
+===========
+*/
+
+font-weight-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'fw-',
+    'values': {
+        '100'  : '100',
+        '200'  : '200',
+        '300'  : '300',
+        '400'  : '400',
+        '500'  : '500',
+        '600'  : '600',
+        '700'  : '700',
+        '800'  : '800',
+        '900'  : '900'
+    }
+}
+
+
+/*
+HEIGHT
+======
+*/
+
+height-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'h-',
+    'values': global-sizing-values
+}
+max-height-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'max-h-',
+    'values': {
+        '0'       : '0',
+        'px'      : '1px',
+        '1of4'    : '25%',
+        '1of3'    : '33.3333%',
+        '1of2'    : '50%',
+        '2of3'    : '66.6666%',
+        '3of4'    : '75%',
+        'full'    : '100%',
+        'auto'    : 'auto',
+        'screen'  : '100vh',
+    }
+}
+min-height-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'min-h-',
+    'values': {
+        '0'       : '0',
+        'px'      : '1px',
+        '1of4'    : '25%',
+        '1of3'    : '33.3333%',
+        '1of2'    : '50%',
+        '2of3'    : '66.6666%',
+        '3of4'    : '75%',
+        'full'    : '100%',
+        'auto'    : 'auto',
+        'screen'  : '100vh',
+    }
+}
+
+
+/*
+JUSTIFY CONTENT
+===============
+*/
+
+justify-content-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'jc-',
+    'values': {
+        'center'  : center,
+        'start'   : flex-start,
+        'end'     : flex-end,
+        'between' : space-between,
+        'around'  : space-around
+    }
+}
+
+
+/*
+LETTER SPACING
+==============
+*/
+
+letter-spacing-settings = {
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'ls-',
+    'values': {
+        'tight'  : '-0.05em',
+        'normal' : '0',
+        'loose'  : '0.15em'
+    }
+}
+
+
+/*
+LINE HEIGHT
+===========
+*/
+
+line-height-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'lh-',
+    'values': {
+        '10': '1',
+        '12': '1.2',
+        '14': '1.4',
+        '15': '1.5',
+        '16': '1.6',
+        '18': '1.8',
+        '20': '2'
+    }
+}
+
+
+/*
+MARGIN
+======
+*/
+
+//Comon values
+margin-values = global-spacing-values
+
+// Settings for margin:
+margin-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'm-',
+    'values': margin-values
+}
+// Settings for sizes (margin-top: etc..)
+margin-top-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'mt-',
+    'values': margin-values
+}
+margin-right-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'mr-',
+    'values': margin-values
+}
+margin-bottom-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'mb-',
+    'values': margin-values
+}
+margin-left-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ml-',
+    'values': margin-values
+}
+
+
+/*
+OPACITY
+=======
+*/
+
+opacity-settings = {
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'op-',
+    'values': {
+        '00' : '0',
+        '02' : '0.2',
+        '04' : '0.4',
+        '06' : '0.6',
+        '08' : '0.8',
+        '10' : '1'
+    }
+}
+
+
+/*
+OVERFLOW
+========
+*/
+
+overflow-values = {
+    'visible' : visible,
+    'hidden'  : hidden,
+    'scroll'  : scroll,
+    'auto'    : auto
+}
+overflow-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ov-',
+    'values': overflow-values
+}
+overflow-x-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ovx-',
+    'values': overflow-values
+}
+overflow-y-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ovy-',
+    'values': overflow-values
+}
+
+
+/*
+PADDING
+=======
+*/
+
+padding-values = global-spacing-values
+
+padding-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'p-',
+    'values': padding-values
+}
+padding-top-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'pt-',
+    'values': padding-values
+}
+padding-right-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'pr-',
+    'values': padding-values
+}
+padding-bottom-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'pb-',
+    'values': padding-values
+}
+padding-left-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'pl-',
+    'values': padding-values
+}
+
+
+/*
+POSITION
+========
+*/
+
+position-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'pos-',
+    'values': {
+        'absolute' : absolute,
+        'relative' : relative,
+        'static'   : static,
+        'fixed'    : fixed
+    }
+}
+
+
+/*
+TEXT ALIGN
+==========
+*/
+
+text-align-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ta-',
+    'values': {
+        'left'    : left,
+        'right'   : right,
+        'center'  : center,
+        'justify' : justify
+    }
+}
+
+
+/*
+TEXT DECORATION
+===============
+*/
+
+text-decoration-settings = {
+    'responsive' : false,
+    'hover'      : true,
+    'classname'  : 'td-',
+    'values': {
+        'none'    : none,
+        'under'   : underline,
+        'strike'  : line-through
+    }
+}
+
+
+/*
+TEXT TRASNFORM
+==============
+*/
+
+text-transform-settings = {
+    'responsive' : false,
+    'hover'      : false,
+    'classname'  : 'tt-',
+    'values': {
+        'title'  : capitalize,
+        'upper'  : uppercase,
+        'lower'  : lowercase,
+        'none'   : none
+    }
+}
+
+
+/*
+VERTICAL ALIGN
+==============
+*/
+
+vertical-align-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'va-',
+    'values': {
+        'base'  : baseline,
+        'sub'   : sub,
+        'sup'   : super,
+        't-top' : text-top,
+        't-bot' : text-bottom,
+        'mid'   : middle,
+        'top'   : top,
+        'bot'   : bottom
+    }
+}
+
+
+/*
+VISIBILITY
+==========
+*/
+
+visibility-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'v-',
+    'values': {
+        'visible'  : visible,
+        'hidden'   : hidden,
+        'collapse' : collapse
+    }
+}
+
+
+/*
+WHITE SPACE
+===========
+*/
+
+white-space-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ws-',
+    'values': {
+        'normal'   : normal,
+        'nowrap'   : nowrap,
+        'pre'      : pre,
+        'pre-wrap' : pre-wrap,
+        'pre-line' : pre-line
+    }
+}
+
+
+/*
+WIDTH
+=====
+*/
+
+width-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'w-',
+    'values': global-sizing-values
+}
+
+max-width-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'max-w-',
+    'values':global-sizing-values
+}
+min-width-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'min-w-',
+    'values': global-sizing-values
+}
+
+
 /*  =========================================================================
-    CUSTOM GLOBAL STYLES
+    OBJECTS
     ========================================================================= */
-html
-    box-sizing: border-box
-*
-*:before
-*:after
-    box-sizing: inherit
 
-figure
-p
-h1
-h2
-h3
-h4
-h5
-h6
-ul
-li
-    margin: 0
+/* 
+ASPECT RATIO
+============
+*/
 
-img
-    display: inline-block
-    max-width: 100%
-
-a
-    color: global-color-values['black']
-    text-decoration: none
-
-ul
-li
-    list-style: none
-    padding: 0
-
-.wrapper
-    width:100%
-    margin-left: auto
-    margin-right: auto
-    padding-left: torem(15px)
-    padding-right: torem(15px)
-    @media screen and (min-width: 23em)
-        min-width: torem(360px)
-        max-width: torem(480px)
-    @media screen and (min-width: 44em)
-        min-width: torem(690px)
-        max-width: torem(810px)
-    @media screen and (min-width: 65em)
-        min-width: torem(1020px)
-        max-width: torem(1110px)
-    @media screen and (min-width: 85em)
-        min-width: torem(1350px)
-        max-width: torem(1550px)
+aspect-ratio-settings = {
+    'responsive' : true,
+    'classname'  : 'ratio-',
+    'insidebox-classname' : 'ratio-inside',
+    'ratios'     : {
+        'square'         : 1,
+        'gold-portrait'  : 1.618,
+        'gold-landscape' : 0.618,
+        '3by4'           : 1.3333,
+    }
+}
 
 
-.underline
-    text-decoration: none
-    position: relative
-.underline:before
-    content: ""
-    position: absolute
-    width: 0
-    bottom: 0
-    left: 0
-    visibility: hidden
-    transition: .25s linear
-.underline:hover:before
-.underline:focus:before
-    visibility: visible
-    width:100%
-    right: 0
+/*
+CLEARFIX
+========
+*/
 
-
-.underline-fat:before
-    height: 3px
-
-.underline-thin:before
-    height: 1px
-    
-.underline-black:before
-    background: #000000
-    
-.underline-white:before
-    background: #ffffff
-
+clearfix-settings = {
+    'responsive' : true,
+    'classname'  : 'cf'
+}

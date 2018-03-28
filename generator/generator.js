@@ -54,9 +54,11 @@ const getItem = function(filePath) {
 
 const urlResolve = function(item, lang) {
     if (item.type == 'page') return lang.path + item.slug + "/index.html"
-    if (item.type == 'audio') return lang.path + "audio/" + item.slug + ".html"
-    if (item.type == 'project') return lang.path + "projekte/" + item.slug + ".html"
-    if (item.type == 'member') return lang.path + "ensemble/" + item.slug + ".html"
+    if (item.type == 'post') return lang.path + "blog/" + item.slug + ".html"
+    if (item.type == 'news') return lang.path + "news/" + item.slug + ".html"
+    if (item.type == 'project') return lang.path + "projects/" + item.slug + ".html"
+    if (item.type == 'member') return lang.path + "members/" + item.slug + ".html"
+    if (item.type == 'activity') return lang.path + "what-we-do/" + item.slug + ".html"
     if (item.type == 'home') return lang.path + "index.html"
 }
 
@@ -64,7 +66,10 @@ const renderTemplate = function(compiledTemplate, controllerOptions, dir) {
     globalOptions.languages.forEach(function(lng) {
         let options = Object.assign(globalOptions, controllerOptions)
         options.language = lng
-        options.url = globalOptions.siteurl + lng.path + controllerOptions.fileurl
+        options.url = urlResolve(controllerOptions, lng)
+        options.pageurl = function(page) {
+            return urlResolve(page, lng)
+        }
         options.formatDate = function(date) { 
             moment.locale(lng.locale) 
             return moment(date).format(globalOptions.dateFormat) 
@@ -72,9 +77,7 @@ const renderTemplate = function(compiledTemplate, controllerOptions, dir) {
         options.get = function(fieldname) { if (lng.path = '/') {return fieldname} else {return fieldname + '_' + lng.locale} }
         options.md = md;
         options.implicitFigures = implicitFigures
-        options.urlResolve = urlResolve
         fs.ensureDirSync(globalOptions.publicDir + lng.path + dir )
-        // fs.writeFile(globalOptions.publicDir + lng.path + dir + '/' + controllerOptions.slug + '.html', compiledTemplate(options))
         fs.writeFile(globalOptions.publicDir + urlResolve(controllerOptions, lng), compiledTemplate(options))
     })
 }

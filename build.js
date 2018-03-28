@@ -23,7 +23,7 @@ const templates = {
 const pages = {
     'home': generator.getItem(content + '/index.yml'),
     'contact': generator.getItem(content + '/contact.yml'),
-    'about': generator.getItem(content + '/whatwedo.yml'),
+    'about': generator.getItem(content + '/what-we-do.yml'),
     'projects': generator.getItem(content + '/projects.yml'),
     'members': generator.getItem(content + '/whoweare.yml'),
     'blog': generator.getItem(content + '/blog.yml'),

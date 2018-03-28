@@ -205,7 +205,7 @@ collections:
       files:
           - label: "What we do"
             name: "whatwedo"
-            file: "content/whatwedo.yml"
+            file: "content/what-we-do.yml"
             fields:
                 - label: "Greek Title"
                   name: "title"

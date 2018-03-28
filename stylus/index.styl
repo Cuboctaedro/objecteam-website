@@ -2,50 +2,20 @@
    #INDEX
    ========================================================================== */
 
+//1. Import functions from the framework
+@import "lib/functions";
 
+//2. Import your resets (like normalize) and anything else that does no depend on the framework
+@import "fonts";
+@import "reset";
+
+//3. Import settings (you can rename and move the settings.styl file, just make sure it is imported here)
 @import "settings";
 
+//4. Import utilities and objectes from the framework
+@import "lib/utilities";
+@import "lib/objects";
 
-@import "utilities/align-content";
-@import "utilities/align-items";
-@import "utilities/align-self";
-@import "utilities/background-color";
-@import "utilities/background-position";
-@import "utilities/background-size";
-@import "utilities/border-color";
-@import "utilities/border-style";
-@import "utilities/border-width";
-@import "utilities/box-shadow";
-@import "utilities/color";
-@import "utilities/display";
-@import "utilities/flex-direction";
-@import "utilities/flex-grow";
-@import "utilities/flex-shrink";
-@import "utilities/flex-wrap";
-@import "utilities/float";
-@import "utilities/font-family";
-@import "utilities/font-size";
-@import "utilities/font-style";
-@import "utilities/font-weight";
-@import "utilities/height";
-@import "utilities/justify-content";
-@import "utilities/letter-spacing";
-@import "utilities/line-height";
-@import "utilities/margin";
-@import "utilities/opacity";
-@import "utilities/overflow";
-@import "utilities/padding";
-@import "utilities/position";
-@import "utilities/text-align";
-@import "utilities/text-decoration";
-@import "utilities/text-transform";
-@import "utilities/vertical-align";
-@import "utilities/visibility";
-@import "utilities/white-space";
-@import "utilities/width";
-
-@import "objects/clearfix";
-@import "objects/aspect-ratio";
-
+//5. Import custom styles that depend on the framework (@extend styles)
 @import "custom";
 

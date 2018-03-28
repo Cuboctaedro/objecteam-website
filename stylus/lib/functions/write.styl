@@ -1,0 +1,28 @@
+/*  =========================================================================
+    Write Function
+    ========================================================================= */
+
+
+
+writeClasses(property, settings) 
+    for key, value in settings['values']
+        .{settings['classname']}{key}
+            {property}: rem(unquote(value))
+    if settings['responsive'] is true
+        for querykey, queryvalue in global-media-queries
+            @media queryvalue
+                for key, value in settings['values']
+                    if media-query-postfix is true
+                        .{settings['classname']}{key}{querykey}
+                            {property}: rem(unquote(value))
+                    else
+                        .{querykey}{settings['classname']}{key}
+                            {property}: rem(unquote(value))
+    if settings['hover'] is true
+        for key, value in settings['values']
+            if hover-postfix is true
+                .{settings['classname']}{key}{hover-identifier}:hover
+                    {property}: rem(unquote(value))
+            else
+                .{hover-identifier}{settings['classname']}{key}:hover
+                    {property}: rem(unquote(value))
