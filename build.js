@@ -24,18 +24,18 @@ const templates = {
 
 const pages = {
     'home': generator.getItem(content + '/index.yml'),
-    'contact': generator.getItem(content + '/contact.yml'),
-    'about': generator.getItem(content + '/what-we-do.yml'),
-    'projects': generator.getItem(content + '/projects.yml'),
-    'members': generator.getItem(content + '/who-we-are.yml'),
-    'news': generator.getItem(content + '/news.yml'),
-    'blog': generator.getItem(content + '/blog.yml'),
+    // 'contact': generator.getItem(content + '/contact.yml'),
+    // 'about': generator.getItem(content + '/what-we-do.yml'),
+    // 'projects': generator.getItem(content + '/projects.yml'),
+    // 'members': generator.getItem(content + '/who-we-are.yml'),
+    // 'news': generator.getItem(content + '/news.yml'),
+    // 'blog': generator.getItem(content + '/blog.yml'),
 }
 
 const collections = {
-    'projects': _.orderBy(generator.getCollection(content + '/projects'), 'date', 'desc'),
-    'members': _.orderBy(generator.getCollection(content + '/members'), 'title', 'asc'),
-    'activities': generator.getCollection(content + '/activities'),
+    // 'projects': _.orderBy(generator.getCollection(content + '/projects'), 'date', 'desc'),
+    // 'members': _.orderBy(generator.getCollection(content + '/members'), 'title', 'asc'),
+    // 'activities': generator.getCollection(content + '/activities'),
 }
 
 const writePage = function(page, template, dir = pages[page]['slug']) {
