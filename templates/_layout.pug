@@ -1,5 +1,5 @@
 doctype html
-html(lang=language.locale)
+html
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
@@ -11,20 +11,27 @@ html(lang=language.locale)
         block meta
         link(rel="stylesheet" href="/css/index.css" type="text/css")
     body(class="fs-16 lh-24 ff-serif c-black bg-white")
-        header(class="bg-black c-white ff-sans fw-800 h-96")
-            div(class="wrapper d-flex gutter")
-                if (type == 'home')
-                    h1(class="tt-upper fs-48 gutter w-1of4")
-                        a(href=pageurl(pages.home) class="c-white") Objecteam
-                else
-                    div(class="tt-upper fs-48 gutter w-1of4") 
-                        a(href=pageurl(pages.home) class="c-white") Objecteam
-                nav(class="tt-upper fs-14 gutter w-3of4")
-                    ul
-                        - var menu = [pages.about, pages.members, pages.blog, pages.contact]
-                        each item in menu
-                            li(class="d-in-bl ml-16")
-                                a(class="c-white" href=pageurl(item)) #{ item[get('title')] }
+        //- header(class="bg-black c-white ff-sans fw-800 h-96")
+        //-     div(class="wrapper d-flex gutter")
+        //-         - var homeurl = pagelanguage.path + "index.html"
+        //-             if (page.type == 'home')
+        //-                 h1(class="tt-upper fs-48 gutter w-1of4")
+                            
+        //-                     a(href=homeurl class="c-white") Objecteam
+        //-             else
+        //-                 div(class="tt-upper fs-48 gutter w-1of4") 
+        //-                     a(href=homeurl class="c-white") Objecteam
+        //-         nav(class="tt-upper fs-14 gutter w-3of4")
+        //-             ul
+        //-                 - var menu = [pages.about, pages.members, pages.blog, pages.contact]
+        //-                     each item in menu
+        //-                         li(class="d-in-bl ml-16")
+        //-                             - var itemurl = pagelanguage.path + item.slug + "/index.html"
+        //-                                 a(class="c-white" href=itemurl) #{ item[get('title', pagelanguage)] }
+        //-             ul
+        //-                 each availlang in languages
+        //-                     li(class="d-in-bl ml-16")
+        //-                         a(class="c-white" href=urlResolve(page, availlang)) #{ availlang['name'] }
 
         block content
 

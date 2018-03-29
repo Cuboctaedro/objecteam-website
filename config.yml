@@ -1,15 +1,15 @@
 siteurl: ''
-summaryLength: 300
-siteTitle: 'Objecteam'
 publicDir: 'public'
 contentDir: 'content'
 staticDir: 'static'
+summaryLength: 300
+siteTitle: 'Objecteam'
 dateFormat: 'LL'
-languages: 
-    - path: '/'
-      locale: 'el'
-      name: 'Greek'
+languages:
     - path: '/en/'
       locale: 'en'
       name: 'English'
+    # - path: '/'
+    #   locale: 'el'
+    #   name: 'Greek'
 defaultLanguage: 'el'

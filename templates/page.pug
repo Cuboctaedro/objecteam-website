@@ -1,17 +1,14 @@
 extends _layout.pug
 block title
-    title #{get(title)} - #{siteTitle}
+    title #{page[get('title')]} - #{siteTitle}
 
 block meta
 
 block content
     section
         header(class="")
-            - var pagetitle = get(title)
-            h1(class="") #{pagetitle}
+            h1(class="") #{page[get('title')]}
             
         div(class="")
             div
-                - md.use(implicitFigures, {dataType: false, figcaption: true });
-                - var body = md.render(get(content))
-                | !{ body }                
+                | !{ page[get('content')] }

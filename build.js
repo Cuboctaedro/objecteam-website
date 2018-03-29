@@ -18,6 +18,8 @@ const templates = {
     // 'member': pug.compileFile('templates/member.pug'),
     // 'members': pug.compileFile('templates/members.pug'),
     'page': pug.compileFile('templates/page.pug'),
+    // 'links': pug.compileFile('templates/links.pug'),
+    // 'audiolist': pug.compileFile('templates/audiolist.pug'),
 }
 
 const pages = {
@@ -26,29 +28,28 @@ const pages = {
     'about': generator.getItem(content + '/what-we-do.yml'),
     'projects': generator.getItem(content + '/projects.yml'),
     'members': generator.getItem(content + '/whoweare.yml'),
-    'blog': generator.getItem(content + '/blog.yml'),
     'news': generator.getItem(content + '/news.yml'),
+    'blog': generator.getItem(content + '/blog.yml'),
 }
 
 const collections = {
-    'activities': _.orderBy(generator.getCollection(content + '/activities'), 'order', 'desc'),
-    'members': _.orderBy(generator.getCollection(content + '/members'), 'order', 'desc'),
-    'projects':  _.orderBy(generator.getCollection(content + '/projects'), 'year', 'desc'),
-    'blog':  _.orderBy(generator.getCollection(content + '/blog'), 'date', 'desc'),
-    'news':  _.orderBy(generator.getCollection(content + '/news'), 'date', 'desc'),
+    'projects': _.orderBy(generator.getCollection(content + '/projects'), 'date', 'desc'),
+    'members': _.orderBy(generator.getCollection(content + '/members'), 'title', 'asc'),
+    'activities': generator.getCollection(content + '/activities'),
 }
 
 const writePage = function(page, template, dir = pages[page]['slug']) {
-    let options = pages[page]
+    let options = new Object()
+    options.page = pages[page]
     options.pages = pages
     options.collections = collections
-    // options['slug'] = 'index'
     generator.render(template, options, dir)
 }
 
 const writeCollection = function(collection, template) {
     collections[collection].forEach(function(item) {
-        let options = item
+        let options = new Object()
+        options.page = item
         options.pages = pages
         options.collections = collections
         generator.render(template, options, item['folder'])
@@ -66,4 +67,4 @@ copydir(static, public, function(err){
     }
 })
 writePage('home', templates.home, '')
-writePage('about', templates.page)
+// writePage('contact', templates.page)
