@@ -27,7 +27,7 @@ const pages = {
     'contact': generator.getItem(content + '/contact.yml'),
     'about': generator.getItem(content + '/what-we-do.yml'),
     'projects': generator.getItem(content + '/projects.yml'),
-    'members': generator.getItem(content + '/whoweare.yml'),
+    'members': generator.getItem(content + '/who-we-are.yml'),
     'news': generator.getItem(content + '/news.yml'),
     'blog': generator.getItem(content + '/blog.yml'),
 }
@@ -67,4 +67,3 @@ copydir(static, public, function(err){
     }
 })
 writePage('home', templates.home, '')
-// writePage('contact', templates.page)
