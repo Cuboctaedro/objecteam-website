@@ -1,491 +1,491 @@
 backend:
-    name: git-gateway
-    branch: master # Branch to update (optional; defaults to master)
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
 publish_mode: editorial_workflow
 media_folder: "static/images" # Media files will be stored in the repo under static/images
 public_folder: "/images" # The src attribute for uploaded media will begin with /images
 collections:
-    - name: "activities"
-      label: "Activities"
-      folder: "content/activities"
-      create: true
-      extension: yml
-      slug: "{{slug}}"
-      fields:
-          - label: "Slug"
-            name: "title"
-            widget: "string"
-          - label: "Type"
-            name: "type"
-            widget: "hidden"
-            default: "activity"
-          - label: "Order"
-            name: "order"
-            widget: "number"
-            required: false
-          - label: "Greek"
-            name: "el"
-            widget: "object"
-            fields:
-                - label: "Title"
-                  name: "title"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
-          - label: "English"
-            name: "en"
-            widget: "object"
-            fields:
-                - label: "Title"
-                  name: "title"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
-    - name: "blog"
-      label: "Blog"
-      folder: "content/blog"
-      create: true
-      extension: yml
-      slug: "{{slug}}"
-      fields:
-          - label: "Slug"
-            name: "title"
-            widget: "string"
-          - label: "Type"
-            name: "type"
-            widget: "hidden"
-            default: "post"
-          - label: "Date"
-            name: "date"
-            widget: "date"
-            required: false
-          - label: "Image"
-            name: "image"
-            widget: "image"
-            required: false
-          - label: "Greek"
-            name: "el"
-            widget: "object"
-            fields:
-                - label: "Title"
-                  name: "title"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
-          - label: "English"
-            name: "en"
-            widget: "object"
-            fields:
-                - label: "Title"
-                  name: "title"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
-    - name: "news"
-      label: "News"
-      folder: "content/news"
-      create: true
-      extension: yml
-      slug: "{{slug}}"
-      fields:
+  - name: "activities"
+    label: "Activities"
+    folder: "content/activities"
+    create: true
+    extension: yml
+    slug: "{{slug}}"
+    fields:
+      - label: "Slug"
+        name: "title"
+        widget: "string"
+      - label: "Type"
+        name: "type"
+        widget: "hidden"
+        default: "activity"
+      - label: "Order"
+        name: "order"
+        widget: "number"
+        required: false
+      - label: "Greek"
+        name: "el"
+        widget: "object"
+        fields:
           - label: "Title"
             name: "title"
             widget: "string"
-          - label: "Type"
-            name: "type"
-            widget: "hidden"
-            default: "news"
-          - label: "Date"
-            name: "date"
-            widget: "date"
-            required: false
           - label: "Text"
             name: "content"
             widget: "markdown"
             required: false
-    - name: "members"
-      label: "Members"
-      folder: "content/members"
-      create: true
-      extension: yml
-      slug: "{{slug}}"
-      fields:
-          - label: "Slug"
+      - label: "English"
+        name: "en"
+        widget: "object"
+        fields:
+          - label: "Title"
             name: "title"
             widget: "string"
-          - label: "Type"
-            name: "type"
-            widget: "hidden"
-            default: "member"
+          - label: "Text"
+            name: "content"
+            widget: "markdown"
+            required: false
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    extension: yml
+    slug: "{{slug}}"
+    fields:
+      - label: "Slug"
+        name: "title"
+        widget: "string"
+      - label: "Type"
+        name: "type"
+        widget: "hidden"
+        default: "post"
+      - label: "Date"
+        name: "date"
+        widget: "date"
+        required: false
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Greek"
+        name: "el"
+        widget: "object"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Text"
+            name: "content"
+            widget: "markdown"
+            required: false
+      - label: "English"
+        name: "en"
+        widget: "object"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Text"
+            name: "content"
+            widget: "markdown"
+            required: false
+  - name: "news"
+    label: "News"
+    folder: "content/news"
+    create: true
+    extension: yml
+    slug: "{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Type"
+        name: "type"
+        widget: "hidden"
+        default: "news"
+      - label: "Date"
+        name: "date"
+        widget: "date"
+        required: false
+      - label: "Text"
+        name: "content"
+        widget: "markdown"
+        required: false
+  - name: "members"
+    label: "Members"
+    folder: "content/members"
+    create: true
+    extension: yml
+    slug: "{{slug}}"
+    fields:
+    - label: "Slug"
+      name: "title"
+      widget: "string"
+    - label: "Type"
+      name: "type"
+      widget: "hidden"
+      default: "member"
+    - label: "Image"
+      name: "image"
+      widget: "image"
+      required: false
+    - label: "Order"
+      name: "order"
+      widget: "number"
+      required: false
+    - label: "Greek"
+      name: "el"
+      widget: "object"
+      fields:
+        - label: "Name"
+          name: "name"
+          widget: "string"
+        - label: "Text"
+          name: "content"
+          widget: "markdown"
+          required: false
+    - label: "English"
+      name: "en"
+      widget: "object"
+      fields:
+        - label: "Name"
+          name: "name"
+          widget: "string"
+        - label: "Text"
+          name: "content"
+          widget: "markdown"
+          required: false
+    - label: "Website"
+      name: "website"
+      widget: "string"
+      required: false
+    - label: "Facebook"
+      name: "facebook"
+      widget: "string"
+      required: false
+    - label: "Twitter"
+      name: "twitter"
+      widget: "string"
+      required: false
+    - label: "Linkedin"
+      name: "linkedin"
+      widget: "string"
+      required: false
+    - label: "Github"
+      name: "github"
+      widget: "string"
+      required: false
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    extension: yml
+    slug: "{{slug}}"
+    fields:
+      - label: "Slug"
+        name: "title"
+        widget: "string"
+      - label: "Type"
+        name: "type"
+        widget: "hidden"
+        default: "project"
+      - label: "Year"
+        name: "year"
+        widget: "string"
+        required: false
+      - label: "Project Type"
+        name: "project_type"
+        widget: "relation"
+        collection: "activities"
+        searchFields: ["title"]
+        valueField: "title"
+      - label: "Feature Image"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Website Link"
+        name: "websitelink"
+        widget: "string"
+        required: false
+      - label: "Read More Link"
+        name: "readmorelink"
+        widget: "string"
+        required: false
+      - label: "Greek"
+        name: "el"
+        widget: "object"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Text"
+            name: "content"
+            widget: "markdown"
+            required: false
+      - label: "English"
+        name: "en"
+        widget: "object"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Text"
+            name: "content"
+            widget: "markdown"
+            required: false
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        fields:
           - label: "Image"
             name: "image"
             widget: "image"
-            required: false
-          - label: "Order"
-            name: "order"
-            widget: "number"
-            required: false
           - label: "Greek"
             name: "el"
             widget: "object"
             fields:
-                - label: "Name"
-                  name: "name"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
+              - label: "Caption"
+                name: "caption"
+                widget: "text"
           - label: "English"
             name: "en"
             widget: "object"
             fields:
-                - label: "Name"
-                  name: "name"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
-          - label: "Website"
-            name: "website"
+              - label: "Caption"
+                name: "caption"
+                widget: "text"
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "What we do"
+        name: "what-we-do"
+        file: "content/what-we-do.yml"
+        fields:
+          - label: "Type"
+            name: "type"
+            widget: "hidden"
+            default: "page"
+          - label: "Greek"
+            name: "el"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+      - label: "Who we are"
+        name: "who-we-are"
+        file: "content/who-we-are.yml"
+        fields:
+          - label: "Type"
+            name: "type"
+            widget: "hidden"
+            default: "page"
+          - label: "Greek"
+            name: "el"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+      - label: "Blog"
+        name: "blog"
+        file: "content/blog.yml"
+        fields:
+          - label: "Type"
+            name: "type"
+            widget: "hidden"
+            default: "page"
+          - label: "Greek"
+            name: "el"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+      - label: "Projects"
+        name: "projects"
+        file: "content/projects.yml"
+        fields:
+          - label: "Type"
+            name: "type"
+            widget: "hidden"
+            default: "page"
+          - label: "Greek"
+            name: "el"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+      - label: "News"
+        name: "news"
+        file: "content/news.yml"
+        fields:
+          - label: "Type"
+            name: "type"
+            widget: "hidden"
+            default: "page"
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Text"
+            name: "content"
+            widget: "markdown"
+            required: false
+      - label: "Contact"
+        name: "contact"
+        file: "content/contact.yml"
+        fields:
+          - label: "Type"
+            name: "type"
+            widget: "hidden"
+            default: "page"
+          - label: "Greek"
+            name: "el"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+              - label: "Address"
+                name: "address"
+                widget: "markdown"
+                required: false
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
+              - label: "Address"
+                name: "address"
+                widget: "markdown"
+                required: false
+          - label: "Email"
+            name: "email"
+            widget: "string"
+            required: false
+          - label: "Phone"
+            name: "phone"
             widget: "string"
             required: false
           - label: "Facebook"
             name: "facebook"
             widget: "string"
             required: false
-          - label: "Twitter"
-            name: "twitter"
+          - label: "LinkedIn"
+            name: "linkedin"
             widget: "string"
             required: false
-          - label: "Linkedin"
-            name: "linkedin"
+          - label: "Behance"
+            name: "behance"
             widget: "string"
             required: false
           - label: "Github"
             name: "github"
             widget: "string"
             required: false
-    - name: "projects"
-      label: "Projects"
-      folder: "content/projects"
-      create: true
-      extension: yml
-      slug: "{{slug}}"
-      fields:
-          - label: "Slug"
-            name: "title"
+          - label: "Twitter"
+            name: "twitter"
             widget: "string"
+            required: false
+      - label: "Home"
+        name: "home"
+        file: "content/index.yml"
+        fields:
           - label: "Type"
             name: "type"
             widget: "hidden"
-            default: "project"
-          - label: "Year"
-            name: "year"
-            widget: "string"
-            required: false
-          - label: "Project Type"
-            name: "project_type"
-            widget: "relation"
-            collection: "activities"
-            searchFields: ["title"]
-            valueField: "title"
-          - label: "Feature Image"
-            name: "image"
-            widget: "image"
-            required: false
-          - label: "Website Link"
-            name: "websitelink"
-            widget: "string"
-            required: false
-          - label: "Read More Link"
-            name: "readmorelink"
-            widget: "string"
-            required: false
+            default: "home"
           - label: "Greek"
             name: "el"
             widget: "object"
             fields:
-                - label: "Title"
-                  name: "title"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
           - label: "English"
             name: "en"
             widget: "object"
             fields:
-                - label: "Title"
-                  name: "title"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
-            required: false
-            fields:
-                - label: "Image"
-                  name: "image"
-                  widget: "image"
-                - label: "Greek"
-                  name: "el"
-                  widget: "object"
-                  fields:
-                      - label: "Caption"
-                        name: "caption"
-                        widget: "text"
-                - label: "English"
-                  name: "en"
-                  widget: "object"
-                  fields:
-                      - label: "Caption"
-                        name: "caption"
-                        widget: "text"
-    - label: "Pages"
-      name: "pages"
-      files:
-          - label: "What we do"
-            name: "what-we-do"
-            file: "content/what-we-do.yml"
-            fields:
-                - label: "Type"
-                  name: "type"
-                  widget: "hidden"
-                  default: "page"
-                - label: "Greek"
-                  name: "el"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-                - label: "English"
-                  name: "en"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-          - label: "Who we are"
-            name: "who-we-are"
-            file: "content/who-we-are.yml"
-            fields:
-                - label: "Type"
-                  name: "type"
-                  widget: "hidden"
-                  default: "page"
-                - label: "Greek"
-                  name: "el"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-                - label: "English"
-                  name: "en"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-          - label: "Blog"
-            name: "blog"
-            file: "content/blog.yml"
-            fields:
-                - label: "Type"
-                  name: "type"
-                  widget: "hidden"
-                  default: "page"
-                - label: "Greek"
-                  name: "el"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-                - label: "English"
-                  name: "en"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-          - label: "Projects"
-            name: "projects"
-            file: "content/projects.yml"
-            fields:
-                - label: "Type"
-                  name: "type"
-                  widget: "hidden"
-                  default: "page"
-                - label: "Greek"
-                  name: "el"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-                - label: "English"
-                  name: "en"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-          - label: "News"
-            name: "news"
-            file: "content/news.yml"
-            fields:
-                - label: "Type"
-                  name: "type"
-                  widget: "hidden"
-                  default: "page"
-                - label: "Title"
-                  name: "title"
-                  widget: "string"
-                - label: "Text"
-                  name: "content"
-                  widget: "markdown"
-                  required: false
-          - label: "Contact"
-            name: "contact"
-            file: "content/contact.yml"
-            fields:
-                - label: "Type"
-                  name: "type"
-                  widget: "hidden"
-                  default: "page"
-                - label: "Greek"
-                  name: "el"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-                      - label: "Address"
-                        name: "address"
-                        widget: "markdown"
-                        required: false
-                - label: "English"
-                  name: "en"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-                      - label: "Address"
-                        name: "address"
-                        widget: "markdown"
-                        required: false
-                - label: "Email"
-                  name: "email"
-                  widget: "string"
-                  required: false
-                - label: "Phone"
-                  name: "phone"
-                  widget: "string"
-                  required: false
-                - label: "Facebook"
-                  name: "facebook"
-                  widget: "string"
-                  required: false
-                - label: "LinkedIn"
-                  name: "linkedin"
-                  widget: "string"
-                  required: false
-                - label: "Behance"
-                  name: "behance"
-                  widget: "string"
-                  required: false
-                - label: "Github"
-                  name: "github"
-                  widget: "string"
-                  required: false
-                - label: "Twitter"
-                  name: "twitter"
-                  widget: "string"
-                  required: false
-          - label: "Home"
-            name: "home"
-            file: "content/index.yml"
-            fields:
-                - label: "Type"
-                  name: "type"
-                  widget: "hidden"
-                  default: "home"
-                - label: "Greek"
-                  name: "el"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
-                - label: "English"
-                  name: "en"
-                  widget: "object"
-                  fields:
-                      - label: "Title"
-                        name: "title"
-                        widget: "string"
-                      - label: "Text"
-                        name: "content"
-                        widget: "markdown"
-                        required: false
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Text"
+                name: "content"
+                widget: "markdown"
+                required: false
