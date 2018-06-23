@@ -9,6 +9,7 @@ html
         meta(name="author" content="Objecteam")
         meta(name="description" content="")
         block meta
+        script(src="https://identity.netlify.com/v1/netlify-identity-widget.js")
         link(rel="stylesheet" href="/css/index.css" type="text/css")
     body(class="fs-16 lh-24 ff-serif c-black bg-white")
         //- header(class="bg-black c-white ff-sans fw-800 h-96")
@@ -36,13 +37,12 @@ html
         block content
 
         script
-            :babel
-                if (window.netlifyIdentity) {
-                    window.netlifyIdentity.on("init", user => {
-                        if (!user) {
-                            window.netlifyIdentity.on("login", () => {
-                                document.location.href = "/admin/";
-                            });
-                        }
-                    });
-                }
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+              if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                  document.location.href = "/admin/";
+                });
+               }
+              });
+           }
